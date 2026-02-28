@@ -77,6 +77,18 @@ public class CheckoutFunctionalTest extends BaseTest {
         // Step 4: Verify product information is complete
         String title = productDetailsPage.getProductTitle();
         String price = productDetailsPage.getProductPrice();
+        Assert.assertNotNull(title, "Product title should not be null");
+        Assert.assertNotNull(price, "Product price should not be null");
+        Assert.assertTrue(title.length() > 0, "Product title should not be empty");
+        System.out.println("✓ Step 4: Product information verified");
+        System.out.println("  - Title: " + title);
+        System.out.println("  - Price: " + price);
+
+        // Step 5: Confirm product page is stable
+        Assert.assertTrue(productDetailsPage.isProductDetailsPageDisplayed(), 
+            "Product page should remain stable");
+        System.out.println("✓ Step 5: Product workflow validated!");
+    }
 
     /**
      * Test 3: Verify product sorting and filtering capability
@@ -186,15 +198,5 @@ public class CheckoutFunctionalTest extends BaseTest {
         Assert.assertTrue(homePage.isProductListDisplayed() || homePage.isHomePageDisplayed(), 
             "Should be able to access product list");
         System.out.println("✓ Step 5: Complete app navigation workflow verified!");
-    }
-}
-            "ordertest@example.com",
-            "999 Order Street",
-            "Order City",
-            "88888",
-            "Test Country"
-        );
-        checkoutPage.pause(1000);
-        System.out.println("✓ Step 5: Checkout form completed with order details!");
     }
 }
