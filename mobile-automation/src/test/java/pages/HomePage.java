@@ -70,7 +70,7 @@ public class HomePage extends BasePage {
      */
     public void clickProductByIndex(int index) {
         By productLocator = AppiumBy.xpath(
-            "//androidx.recyclerview.widget.RecyclerView[@resource-id='com.saucelabs.mydemoapp.android:id/productRV']//android.widget.RelativeLayout[" + index + "]"
+            "(//androidx.recyclerview.widget.RecyclerView[@resource-id='com.saucelabs.mydemoapp.android:id/productRV']//android.widget.ImageView[@resource-id='com.saucelabs.mydemoapp.android:id/productIV'])[" + index + "]"
         );
         waitForClickability(productLocator).click();
     }

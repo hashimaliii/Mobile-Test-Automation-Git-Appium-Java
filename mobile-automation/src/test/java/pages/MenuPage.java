@@ -11,13 +11,13 @@ import org.openqa.selenium.By;
 public class MenuPage extends BasePage {
     
     // Locators
-    private final By menuDrawer = AppiumBy.id("com.saucelabs.mydemoapp.android:id/navView");
+    private final By menuDrawer = AppiumBy.id("com.saucelabs.mydemoapp.android:id/drawerMenu");
     private final By logInOption = AppiumBy.xpath("//*[@text='Log In']");
     private final By logOutOption = AppiumBy.xpath("//*[@text='Log Out']");
     private final By aboutOption = AppiumBy.xpath("//*[@text='About']");
     private final By webViewOption = AppiumBy.xpath("//*[@text='WebView']");
-    private final By drawerLayout = AppiumBy.id("com.saucelabs.mydemoapp.android:id/drawer_layout");
-    private final By menuTitle = AppiumBy.xpath("//*[@text='Menu']");
+    private final By catalogOption = AppiumBy.xpath("//*[@text='Catalog']");
+    private final By resetAppOption = AppiumBy.xpath("//*[@text='Reset App State']");
     
     public MenuPage(AndroidDriver driver) {
         super(driver);
@@ -64,6 +64,20 @@ public class MenuPage extends BasePage {
      */
     public void clickWebViewOption() {
         waitForClickability(webViewOption).click();
+    }
+
+    /**
+     * Click on catalog option
+     */
+    public void clickCatalogOption() {
+        waitForClickability(catalogOption).click();
+    }
+
+    /**
+     * Click on reset app option
+     */
+    public void clickResetAppOption() {
+        waitForClickability(resetAppOption).click();
     }
 
     /**
