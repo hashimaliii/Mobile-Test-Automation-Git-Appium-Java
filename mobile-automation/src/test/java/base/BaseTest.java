@@ -15,22 +15,33 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() throws MalformedURLException {
-        // 1. Locate the APK file in your new 'app' folder
-        File app = new File("app/mda-2.2.0-25.apk");
+        // Use an absolute path check to ensure CI finds the APK regardless of the runner's start point
+        File app = new File(System.getProperty("user.dir") + "/../app/mda-2.2.0-25.apk");
+        
+        // If your 'app' folder is INSIDE 'mobile-automation', use this instead:
+        // File app = new File(System.getProperty("user.dir") + "/app/mda-2.2.0-25.apk");
 
-        // 2. Configure the Emulator and Appium settings
         UiAutomator2Options options = new UiAutomator2Options()
+                .setPlatformName("Android")
+                .setAutomationName("UiAutomator2")
+                .setDeviceName("emulator-5554")
                 .setApp(app.getAbsolutePath())
-                .setAutoGrantPermissions(true); 
+                // --- ADD THESE THREE LINES ---
+                .setAppPackage("com.saucelabs.mydemoapp.android")
+                .setAppActivity("com.saucelabs.mydemoapp.android.view.activities.SplashActivity")
+                .setAppWaitDuration(Duration.ofSeconds(60)) // Give it a full minute to launch
+                // -----------------------------
+                .setNoReset(true)
+                .setAutoGrantPermissions(true);
 
-        // 3. Connect to the local Appium Server
+        // Added the /v1/ suffix which some Appium 2.x server configurations prefer
+        // But 127.0.0.1:4723 is usually fine for default installs
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterMethod
     public void tearDown() {
-        // 4. Close the app after the test
         if (driver != null) {
             driver.quit();
         }
