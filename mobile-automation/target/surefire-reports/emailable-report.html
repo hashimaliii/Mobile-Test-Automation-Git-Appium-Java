@@ -9,52 +9,26 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Surefire suite</th></tr>
-<tr><td><a href="#t0">Surefire test</a></td><td class="num">0</td><td class="num attn">1</td><td class="num">0</td><td class="num">0</td><td class="num">20,838</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">17</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">250,626</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">tests.AppLaunchTest</td><td><a href="#m0">setUp</a></td><td rowspan="1">1772259078689</td><td rowspan="1">20794</td></tr><tr><th colspan="4">Surefire test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">tests.AppLaunchTest</td><td><a href="#m1">tearDown</a></td><td rowspan="1">1772259099493</td><td rowspan="1">0</td></tr><tr><th colspan="4">Surefire test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">tests.AppLaunchTest</td><td><a href="#m2">testAppLaunchesSuccessfully</a></td><td rowspan="1">1772259099491</td><td rowspan="1">0</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">tests.AccessibilityTest</td><td><a href="#m0">testAppLaunchAnnouncement</a></td><td rowspan="1">1772268601605</td><td rowspan="1">92</td></tr><tr class="passedeven"><td><a href="#m1">testProductImageContentDescription</a></td><td rowspan="1">1772268614764</td><td rowspan="1">320</td></tr><tr class="passedeven"><td><a href="#m2">testScreenReaderFocusability</a></td><td rowspan="1">1772268627960</td><td rowspan="1">257</td></tr><tr class="passedeven"><td><a href="#m3">testUIElementsAccessibility</a></td><td rowspan="1">1772268641235</td><td rowspan="1">206</td></tr><tr class="passedodd"><td rowspan="1">tests.AppFunctionalTest</td><td><a href="#m4">testValidLogin</a></td><td rowspan="1">1772268655109</td><td rowspan="1">3606</td></tr><tr class="passedeven"><td rowspan="1">tests.AppLaunchTest</td><td><a href="#m5">testAppLaunchesSuccessfully</a></td><td rowspan="1">1772268672947</td><td rowspan="1">3002</td></tr><tr class="passedodd"><td rowspan="3">tests.CartTest</td><td><a href="#m6">testAddToCartFunctionality</a></td><td rowspan="1">1772268688543</td><td rowspan="1">1535</td></tr><tr class="passedodd"><td><a href="#m7">testCartButtonIsClickable</a></td><td rowspan="1">1772268703546</td><td rowspan="1">190</td></tr><tr class="passedodd"><td><a href="#m8">testCartIconPresent</a></td><td rowspan="1">1772268717224</td><td rowspan="1">165</td></tr><tr class="passedeven"><td rowspan="2">tests.LoginTest</td><td><a href="#m9">testLoginScreenElementsPresent</a></td><td rowspan="1">1772268731025</td><td rowspan="1">4205</td></tr><tr class="passedeven"><td><a href="#m10">testLoginWithValidCredentials</a></td><td rowspan="1">1772268748559</td><td rowspan="1">5254</td></tr><tr class="passedodd"><td rowspan="3">tests.NavigationTest</td><td><a href="#m11">testHeaderElementsPresent</a></td><td rowspan="1">1772268767062</td><td rowspan="1">342</td></tr><tr class="passedodd"><td><a href="#m12">testMenuDrawerOpens</a></td><td rowspan="1">1772268780467</td><td rowspan="1">2407</td></tr><tr class="passedodd"><td><a href="#m13">testSortingOptionAvailable</a></td><td rowspan="1">1772268796346</td><td rowspan="1">217</td></tr><tr class="passedeven"><td rowspan="3">tests.ProductBrowsingTest</td><td><a href="#m14">testProductDetailsVisible</a></td><td rowspan="1">1772268809300</td><td rowspan="1">417</td></tr><tr class="passedeven"><td><a href="#m15">testProductListNotEmpty</a></td><td rowspan="1">1772268824534</td><td rowspan="1">180</td></tr><tr class="passedeven"><td><a href="#m16">testProductsDisplayed</a></td><td rowspan="1">1772268837435</td><td rowspan="1">162</td></tr></tbody>
 </table>
-<h2>Surefire test</h2><h3 id="m0">tests.AppLaunchTest#setUp</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Could not find a connected Android device in 20000ms 
-Host info: host: &apos;DESKTOP-OHDEM5T&apos;, ip: &apos;192.168.1.103&apos;
-Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [null, newSession {capabilities=[{appium:autoGrantPermissions=true, platformName=ANDROID, appium:automationName=UIAutomator2, appium:app=D:\DevOps\Mobile-Test-Automation-Git-Appium-Java\mobile-automation\app\mda-2.2.0-25.apk}], desiredCapabilities=Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}}]
-Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:140)
-	at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:133)
-	at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:102)
-	at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:182)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-	at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:274)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:154)
-	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:89)
-	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:101)
-	at io.appium.java_client.android.AndroidDriver.&lt;init&gt;(AndroidDriver.java:113)
-	at base.BaseTest.setUp(BaseTest.java:27)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 40 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">tests.AppLaunchTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">tests.AppLaunchTest#testAppLaunchesSuccessfully</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Could not find a connected Android device in 20000ms 
-Host info: host: &apos;DESKTOP-OHDEM5T&apos;, ip: &apos;192.168.1.103&apos;
-Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.12&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [null, newSession {capabilities=[{appium:autoGrantPermissions=true, platformName=ANDROID, appium:automationName=UIAutomator2, appium:app=D:\DevOps\Mobile-Test-Automation-Git-Appium-Java\mobile-automation\app\mda-2.2.0-25.apk}], desiredCapabilities=Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}}]
-Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:140)
-	at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:133)
-	at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:102)
-	at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:182)
-	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-	at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:274)
-	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:154)
-	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:89)
-	at io.appium.java_client.AppiumDriver.&lt;init&gt;(AppiumDriver.java:101)
-	at io.appium.java_client.android.AndroidDriver.&lt;init&gt;(AndroidDriver.java:113)
-	at base.BaseTest.setUp(BaseTest.java:27)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 40 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Surefire test</h2><h3 id="m0">tests.AccessibilityTest#testAppLaunchAnnouncement</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">tests.AccessibilityTest#testProductImageContentDescription</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">tests.AccessibilityTest#testScreenReaderFocusability</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">tests.AccessibilityTest#testUIElementsAccessibility</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">tests.AppFunctionalTest#testValidLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">tests.AppLaunchTest#testAppLaunchesSuccessfully</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">tests.CartTest#testAddToCartFunctionality</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">tests.CartTest#testCartButtonIsClickable</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">tests.CartTest#testCartIconPresent</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">tests.LoginTest#testLoginScreenElementsPresent</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">tests.LoginTest#testLoginWithValidCredentials</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">tests.NavigationTest#testHeaderElementsPresent</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">tests.NavigationTest#testMenuDrawerOpens</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">tests.NavigationTest#testSortingOptionAvailable</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m14">tests.ProductBrowsingTest#testProductDetailsVisible</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m15">tests.ProductBrowsingTest#testProductListNotEmpty</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m16">tests.ProductBrowsingTest#testProductsDisplayed</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

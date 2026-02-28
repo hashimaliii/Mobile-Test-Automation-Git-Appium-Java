@@ -39,6 +39,7 @@ jobs:
           
           # Install a compatible version of the uiautomator2 driver (not the v3-beta one)
           appium driver install uiautomator2@2.45.1
+          appium --allow-insecure adb_shell --log appium.log &
           
           # Start Appium in the background
           appium --log appium.log &
@@ -55,5 +56,11 @@ jobs:
           working-directory: ./mobile-automation
           script: |
             adb wait-for-device
+            # Wait for boot...
             while [ "`adb shell getprop sys.boot_completed | tr -d '\r'`" != "1" ] ; do sleep 5; done
+            
+            # UNLOCK HERE INSTEAD OF JAVA
+            adb shell input keyevent KEYCODE_WAKEUP
+            adb shell input keyevent 82
+            
             mvn clean test
