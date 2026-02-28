@@ -1,0 +1,68 @@
+# Dockerfile for Android Emulator
+# This image runs Android emulator that can be used with Appium
+# Requires KVM support on Linux hosts
+
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV ANDROID_SDK_ROOT=/opt/android-sdk
+ENV ANDROID_HOME=/opt/android-sdk
+ENV PATH="/opt/android-sdk/platform-tools:/opt/android-sdk/tools/bin:/opt/android-sdk/emulator:${PATH}"
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    unzip \
+    openjdk-17-jdk \
+    libc6-i386 \
+    lib32stdc++6 \
+    lib32gcc1 \
+    libxrender1 \
+    libxrandr2 \
+    libxinerama1 \
+    libxi6 \
+    libx11-6 \
+    libgl1-mesa-glx \
+    qemu-kvm \
+    qemu-system-x86-64 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Android SDK
+RUN mkdir -p /opt/android-sdk && cd /opt/android-sdk && \
+    wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip && \
+    unzip commandlinetools-linux-9477386_latest.zip && \
+    rm commandlinetools-linux-9477386_latest.zip && \
+    mv cmdline-tools cmdline-tools-latest && \
+    mkdir -p cmdline-tools && \
+    mv cmdline-tools-latest cmdline-tools/latest
+
+# Accept licenses
+RUN echo "y" | /opt/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
+# Install Android components
+RUN /opt/android-sdk/cmdline-tools/latest/bin/sdkmanager \
+    "platform-tools" \
+    "platforms;android-33" \
+    "system-images;android-33;google_apis;x86_64" \
+    "emulator" \
+    "tools" \
+    || true
+
+# Create emulator
+RUN /opt/android-sdk/cmdline-tools/latest/bin/avdmanager create avd \
+    -n pixel_4 \
+    -k "system-images;android-33;google_apis;x86_64" \
+    -device "pixel_4" || true
+
+# Emulator startup script
+RUN echo '#!/bin/bash\n\
+export ANDROID_SDK_ROOT=/opt/android-sdk\n\
+export ANDROID_HOME=/opt/android-sdk\n\
+export PATH="/opt/android-sdk/platform-tools:/opt/android-sdk/emulator:$PATH"\n\
+/opt/android-sdk/emulator/emulator -avd pixel_4 -no-window -no-boot-anim -qemu -m 2048\n\
+' > /start-emulator.sh && chmod +x /start-emulator.sh
+
+EXPOSE 5554 5555
+
+CMD ["/start-emulator.sh"]

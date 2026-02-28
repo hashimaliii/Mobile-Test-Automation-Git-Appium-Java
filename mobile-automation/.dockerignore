@@ -1,0 +1,23 @@
+# Maven
+target/
+*.jar
+*.war
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Git
+.git/
+.gitignore
+
+# Other
+.m2/
+*.log
+node_modules/
+.env
+.env.local
