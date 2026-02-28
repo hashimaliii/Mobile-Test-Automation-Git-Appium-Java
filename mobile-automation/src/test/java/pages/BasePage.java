@@ -99,7 +99,7 @@ public class BasePage {
     /**
      * Pause execution for specified milliseconds
      */
-    protected void pause(long milliseconds) {
+    public void pause(long milliseconds) {
         try {
             Thread.sleep(milliseconds);
         } catch (InterruptedException e) {
