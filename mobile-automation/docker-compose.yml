@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  appium-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: appium-test-server
+    ports:
+      - "4723:4723"
+      - "5554:5554"
+      - "5555:5555"
+    environment:
+      - APPIUM_HOME=/opt/appium
+      - ANDROID_SDK_ROOT=/opt/android-sdk
+      - ANDROID_HOME=/opt/android-sdk
+      - JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+      - APPIUM_LOG_LEVEL=info
+    volumes:
+      - ./src:/workspace/src
+      - ./app:/workspace/app
+      - ./target:/workspace/target
+      - /dev/kvm:/dev/kvm
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
+      - NET_ADMIN
+    networks:
+      - appium-network
+    stdin_open: true
+    tty: true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4723/wd/hub/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+networks:
+  appium-network:
+    driver: bridge

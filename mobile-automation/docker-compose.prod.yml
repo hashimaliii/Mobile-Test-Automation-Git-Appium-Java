@@ -1,0 +1,181 @@
+# Production-Ready Docker Compose Configuration
+# For use in staging and production environments
+# Includes health checks, resource limits, and security settings
+
+version: '3.8'
+
+services:
+  appium-server:
+    image: appium-test:latest
+    container_name: appium-test-prod
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "5"
+        labels: "com.appium.test=true"
+    
+    # Port mappings
+    ports:
+      - "4723:4723"
+      - "5554:5554"
+      - "5555:5555"
+    
+    # Environment configuration
+    env_file:
+      - .env
+    
+    environment:
+      - APPIUM_HOST=0.0.0.0
+      - APPIUM_PORT=4723
+      - APPIUM_LOG_LEVEL=info
+      - JAVA_OPTS=-Xmx2048m -XX:MaxPermSize=512m
+      - TZ=UTC
+    
+    # Volume mounts (read-only for security)
+    volumes:
+      - ./src:/workspace/src:ro
+      - ./app:/workspace/app:ro
+      - ./target:/workspace/target
+      - ./logs:/workspace/logs
+      - appium-data:/opt/appium
+    
+    # Health check
+    healthcheck:
+      test: 
+        - CMD
+        - curl
+        - -f
+        - http://localhost:4723/wd/hub/status
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    
+    # Network configuration
+    networks:
+      - appium-network
+    
+    # Security options (Linux)
+    security_opt:
+      - no-new-privileges:true
+    
+    # Capabilities
+    cap_add:
+      - SYS_ADMIN
+    
+    cap_drop:
+      - ALL
+    
+    # Resource limits (sysctls)
+    sysctls:
+      - net.ipv4.ip_unprivileged_port_start=0
+    
+    # Interactive/TTY
+    stdin_open: false
+    tty: false
+    
+    # Depends on (if using emulator)
+    depends_on:
+      - android-emulator
+
+  android-emulator:
+    image: android-emulator:latest
+    container_name: android-emulator-prod
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 6G
+        reservations:
+          cpus: '2'
+          memory: 4G
+    
+    # Logging
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "3"
+    
+    # Port mappings
+    ports:
+      - "5554:5554"
+      - "5555:5555"
+    
+    # Environment configuration
+    environment:
+      - EMULATOR_DEVICE=pixel_4
+      - ANDROID_API_LEVEL=33
+      - ANDROID_ARCH=x86_64
+      - TZ=UTC
+    
+    # Volume mounts
+    volumes:
+      - android-data:/root/.android
+    
+    # Health check
+    healthcheck:
+      test:
+        - CMD
+        - sh
+        - -c
+        - 'adb devices | grep -q emulator-5554'
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+    
+    # Network configuration
+    networks:
+      - appium-network
+    
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+    
+    # Privileged mode (required for KVM)
+    privileged: true
+    
+    # Device access (for KVM)
+    devices:
+      - /dev/kvm:/dev/kvm
+    
+    # Interactive/TTY
+    stdin_open: false
+    tty: false
+
+# Networks
+networks:
+  appium-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# Volumes
+volumes:
+  appium-data:
+    driver: local
+  android-data:
+    driver: local
