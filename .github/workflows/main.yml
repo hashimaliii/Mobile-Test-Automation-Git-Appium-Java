@@ -41,9 +41,10 @@ jobs:
       - name: Run Tests in Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 33
+          api-level: 29
           target: default
-          arch: x86_64 
+          arch: x86_64
           profile: pixel_6
+          disable-animations: true
           working-directory: ./mobile-automation
           script: mvn clean test
