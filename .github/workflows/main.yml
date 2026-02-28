@@ -34,9 +34,14 @@ jobs:
 
       - name: Install and Start Appium Server
         run: |
-          npm install -g appium@2.4.1 # Specific version to satisfy uiautomator2 peer deps
-          appium driver install uiautomator2
-          appium --log appium.log & 
+          # Install stable Appium 2
+          npm install -g appium@2.5.1 
+          
+          # Install a compatible version of the uiautomator2 driver (not the v3-beta one)
+          appium driver install uiautomator2@2.45.1
+          
+          # Start Appium in the background
+          appium --log appium.log &
 
       - name: Run Tests in Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
