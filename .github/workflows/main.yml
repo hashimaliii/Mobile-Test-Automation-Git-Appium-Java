@@ -27,14 +27,14 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Set up Node.js for Appium
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install and Start Appium Server
         run: |
-          npm install -g appium@next 
+          npm install -g appium@3.0.0-beta.4 # Explicitly targeting the v3 beta
           appium driver install uiautomator2
           appium & 
 
@@ -46,5 +46,9 @@ jobs:
           arch: x86_64
           profile: pixel_6
           disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-audio -no-boot-anim
           working-directory: ./mobile-automation
-          script: mvn clean test
+          # Increased wait time for slow cloud boots
+          script: |
+            adb wait-for-device
+            mvn clean test
