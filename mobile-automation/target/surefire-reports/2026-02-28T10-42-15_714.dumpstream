@@ -1,0 +1,5 @@
+# Created at 2026-02-28T10:42:15.875
+Boot Manifest-JAR contains absolute paths in classpath 'D:\DevOps\Mobile-Test-Automation-Git-Appium-Java\mobile-automation\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
