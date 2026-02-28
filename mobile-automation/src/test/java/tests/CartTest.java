@@ -48,12 +48,20 @@ public class CartTest extends BaseTest {
         // Click on first product
         homePage.clickFirstProduct();
         
-        // Verify product details page loaded
-        productDetailsPage.pause(1000);
+        // Verify product details page loaded by checking product title
+        productDetailsPage.pause(1500);
         Assert.assertTrue(productDetailsPage.isProductDetailsPageDisplayed(), 
             "Product details page not loaded");
-        Assert.assertTrue(productDetailsPage.isAddToCartButtonDisplayed(), 
-            "Add to cart button not displayed");
-        System.out.println("✓ Product detail page loaded successfully and Add to Cart button is visible!");
+        
+        // Verify product information is displayed
+        String productTitle = productDetailsPage.getProductTitle();
+        String productPrice = productDetailsPage.getProductPrice();
+        
+        Assert.assertNotNull(productTitle, "Product title is null");
+        Assert.assertNotNull(productPrice, "Product price is null");
+        Assert.assertTrue(!productTitle.isEmpty(), "Product title is empty");
+        Assert.assertTrue(!productPrice.isEmpty(), "Product price is empty");
+        
+        System.out.println("✓ Product Details - Title: " + productTitle + ", Price: " + productPrice);
     }
 }

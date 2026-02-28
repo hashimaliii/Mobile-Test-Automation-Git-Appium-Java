@@ -84,7 +84,17 @@ public class ProductDetailsPage extends BasePage {
      * Check if add to cart button is displayed
      */
     public boolean isAddToCartButtonDisplayed() {
-        return isElementDisplayed(addToCartButton);
+        try {
+            return isElementDisplayed(addToCartButton);
+        } catch (Exception e) {
+            // Button might not be visible, try alternative locators
+            try {
+                By altLocator = AppiumBy.xpath("//android.widget.Button[contains(@text, 'Add')]");
+                return isElementDisplayed(altLocator);
+            } catch (Exception e2) {
+                return false;
+            }
+        }
     }
 
     /**
