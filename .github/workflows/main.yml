@@ -1,0 +1,43 @@
+name: Mobile Automation CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest # macOS runners support hardware acceleration for Android emulators
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Set up Node.js for Appium
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install and Start Appium Server
+        run: |
+          npm install -g appium@next
+          appium driver install uiautomator2
+          appium & # The '&' symbol keeps the server running in the background
+
+      - name: Run Tests in Android Emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: default
+          arch: x86_64
+          profile: pixel_6
+          working-directory: ./mobile-automation  # Tells the CI to look in this folder for the pom.xml
+          script: mvn clean test
