@@ -1,173 +1,229 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
+<testng-results ignored="0" total="17" passed="17" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-28T11:11:18 PKT" name="Surefire suite" finished-at="2026-02-28T11:11:39 PKT" duration-ms="20838">
+  <suite started-at="2026-02-28T13:49:47 PKT" name="Surefire suite" finished-at="2026-02-28T13:53:58 PKT" duration-ms="250626">
     <groups>
     </groups>
-    <test started-at="2026-02-28T11:11:18 PKT" name="Surefire test" finished-at="2026-02-28T11:11:39 PKT" duration-ms="20838">
-      <class name="tests.AppLaunchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AppLaunchTest@6f96c77]" started-at="2026-02-28T11:11:18 PKT" name="setUp" finished-at="2026-02-28T11:11:39 PKT" duration-ms="20794" status="FAIL">
-          <exception class="org.openqa.selenium.SessionNotCreatedException">
-            <message>
-              <![CDATA[Could not start a new session. Response code 500. Message: Could not find a connected Android device in 20000ms 
-Host info: host: 'DESKTOP-OHDEM5T', ip: '192.168.1.103'
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [null, newSession {capabilities=[{appium:autoGrantPermissions=true, platformName=ANDROID, appium:automationName=UIAutomator2, appium:app=D:\DevOps\Mobile-Test-Automation-Git-Appium-Java\mobile-automation\app\mda-2.2.0-25.apk}], desiredCapabilities=Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}}]
-Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Could not find a connected Android device in 20000ms 
-Host info: host: 'DESKTOP-OHDEM5T', ip: '192.168.1.103'
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [null, newSession {capabilities=[{appium:autoGrantPermissions=true, platformName=ANDROID, appium:automationName=UIAutomator2, appium:app=D:\DevOps\Mobile-Test-Automation-Git-Appium-Java\mobile-automation\app\mda-2.2.0-25.apk}], desiredCapabilities=Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}}]
-Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}
-at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:140)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:133)
-at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:102)
-at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:182)
-at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:274)
-at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:154)
-at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:89)
-at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:101)
-at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:113)
-at base.BaseTest.setUp(BaseTest.java:27)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:577)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+    <test started-at="2026-02-28T13:49:47 PKT" name="Surefire test" finished-at="2026-02-28T13:53:58 PKT" duration-ms="250626">
+      <class name="tests.LoginTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginTest@48ae9b55]" started-at="2026-02-28T13:51:58 PKT" name="setUp" finished-at="2026-02-28T13:52:11 PKT" duration-ms="12698" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testAppLaunchesSuccessfully()[pri:0, instance:tests.AppLaunchTest@6f96c77]" started-at="2026-02-28T11:11:39 PKT" name="testAppLaunchesSuccessfully" finished-at="2026-02-28T11:11:39 PKT" duration-ms="0" status="SKIP">
-          <exception class="org.openqa.selenium.SessionNotCreatedException">
-            <message>
-              <![CDATA[Could not start a new session. Response code 500. Message: Could not find a connected Android device in 20000ms 
-Host info: host: 'DESKTOP-OHDEM5T', ip: '192.168.1.103'
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [null, newSession {capabilities=[{appium:autoGrantPermissions=true, platformName=ANDROID, appium:automationName=UIAutomator2, appium:app=D:\DevOps\Mobile-Test-Automation-Git-Appium-Java\mobile-automation\app\mda-2.2.0-25.apk}], desiredCapabilities=Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}}]
-Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Could not find a connected Android device in 20000ms 
-Host info: host: 'DESKTOP-OHDEM5T', ip: '192.168.1.103'
-Build info: version: '4.10.0', revision: 'c14d967899'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
-Driver info: io.appium.java_client.android.AndroidDriver
-Command: [null, newSession {capabilities=[{appium:autoGrantPermissions=true, platformName=ANDROID, appium:automationName=UIAutomator2, appium:app=D:\DevOps\Mobile-Test-Automation-Git-Appium-Java\mobile-automation\app\mda-2.2.0-25.apk}], desiredCapabilities=Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}}]
-Capabilities {appium:app: D:\DevOps\Mobile-Test-Autom..., appium:autoGrantPermissions: true, appium:automationName: UIAutomator2, platformName: ANDROID}
-at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:140)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:133)
-at io.appium.java_client.remote.AppiumProtocolHandshake.createSession(AppiumProtocolHandshake.java:102)
-at io.appium.java_client.remote.AppiumCommandExecutor.createSession(AppiumCommandExecutor.java:182)
-at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-at io.appium.java_client.AppiumDriver.startSession(AppiumDriver.java:274)
-at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:154)
-at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:89)
-at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:101)
-at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:113)
-at base.BaseTest.setUp(BaseTest.java:27)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:577)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
-at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
-at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
-at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
+        <test-method signature="testLoginScreenElementsPresent()[pri:0, instance:tests.LoginTest@48ae9b55]" started-at="2026-02-28T13:52:11 PKT" name="testLoginScreenElementsPresent" finished-at="2026-02-28T13:52:15 PKT" duration-ms="4205" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginScreenElementsPresent -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.LoginTest@48ae9b55]" started-at="2026-02-28T13:52:15 PKT" name="tearDown" finished-at="2026-02-28T13:52:16 PKT" duration-ms="922" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginTest@48ae9b55]" started-at="2026-02-28T13:52:16 PKT" name="setUp" finished-at="2026-02-28T13:52:28 PKT" duration-ms="12407" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLoginWithValidCredentials()[pri:0, instance:tests.LoginTest@48ae9b55]" started-at="2026-02-28T13:52:28 PKT" name="testLoginWithValidCredentials" finished-at="2026-02-28T13:52:33 PKT" duration-ms="5254" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLoginWithValidCredentials -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.LoginTest@48ae9b55]" started-at="2026-02-28T13:52:33 PKT" name="tearDown" finished-at="2026-02-28T13:52:34 PKT" duration-ms="904" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.LoginTest -->
+      <class name="tests.AccessibilityTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:49:47 PKT" name="setUp" finished-at="2026-02-28T13:50:01 PKT" duration-ms="13631" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAppLaunchAnnouncement()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:01 PKT" name="testAppLaunchAnnouncement" finished-at="2026-02-28T13:50:01 PKT" duration-ms="92" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAppLaunchAnnouncement -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:01 PKT" name="tearDown" finished-at="2026-02-28T13:50:02 PKT" duration-ms="977" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:02 PKT" name="setUp" finished-at="2026-02-28T13:50:14 PKT" duration-ms="12088" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testProductImageContentDescription()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:14 PKT" name="testProductImageContentDescription" finished-at="2026-02-28T13:50:15 PKT" duration-ms="320" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProductImageContentDescription -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:15 PKT" name="tearDown" finished-at="2026-02-28T13:50:15 PKT" duration-ms="847" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:15 PKT" name="setUp" finished-at="2026-02-28T13:50:27 PKT" duration-ms="12027" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testScreenReaderFocusability()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:27 PKT" name="testScreenReaderFocusability" finished-at="2026-02-28T13:50:28 PKT" duration-ms="257" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testScreenReaderFocusability -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:28 PKT" name="tearDown" finished-at="2026-02-28T13:50:29 PKT" duration-ms="797" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:29 PKT" name="setUp" finished-at="2026-02-28T13:50:41 PKT" duration-ms="12219" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testUIElementsAccessibility()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:41 PKT" name="testUIElementsAccessibility" finished-at="2026-02-28T13:50:41 PKT" duration-ms="206" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUIElementsAccessibility -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AccessibilityTest@7e0b85f9]" started-at="2026-02-28T13:50:41 PKT" name="tearDown" finished-at="2026-02-28T13:50:42 PKT" duration-ms="899" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.AccessibilityTest -->
+      <class name="tests.AppFunctionalTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AppFunctionalTest@63355449]" started-at="2026-02-28T13:50:42 PKT" name="setUp" finished-at="2026-02-28T13:50:55 PKT" duration-ms="12765" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testValidLogin()[pri:0, instance:tests.AppFunctionalTest@63355449]" started-at="2026-02-28T13:50:55 PKT" name="testValidLogin" finished-at="2026-02-28T13:50:58 PKT" duration-ms="3606" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testValidLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AppFunctionalTest@63355449]" started-at="2026-02-28T13:50:58 PKT" name="tearDown" finished-at="2026-02-28T13:50:59 PKT" duration-ms="909" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.AppFunctionalTest -->
+      <class name="tests.CartTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.CartTest@6a28ffa4]" started-at="2026-02-28T13:51:16 PKT" name="setUp" finished-at="2026-02-28T13:51:28 PKT" duration-ms="11728" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAddToCartFunctionality()[pri:0, instance:tests.CartTest@6a28ffa4]" started-at="2026-02-28T13:51:28 PKT" name="testAddToCartFunctionality" finished-at="2026-02-28T13:51:30 PKT" duration-ms="1535" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddToCartFunctionality -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.CartTest@6a28ffa4]" started-at="2026-02-28T13:51:30 PKT" name="tearDown" finished-at="2026-02-28T13:51:31 PKT" duration-ms="995" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.CartTest@6a28ffa4]" started-at="2026-02-28T13:51:31 PKT" name="setUp" finished-at="2026-02-28T13:51:43 PKT" duration-ms="12472" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCartButtonIsClickable()[pri:0, instance:tests.CartTest@6a28ffa4]" started-at="2026-02-28T13:51:43 PKT" name="testCartButtonIsClickable" finished-at="2026-02-28T13:51:43 PKT" duration-ms="190" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCartButtonIsClickable -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.CartTest@6a28ffa4]" started-at="2026-02-28T13:51:43 PKT" name="tearDown" finished-at="2026-02-28T13:51:44 PKT" duration-ms="858" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.CartTest@6a28ffa4]" started-at="2026-02-28T13:51:44 PKT" name="setUp" finished-at="2026-02-28T13:51:57 PKT" duration-ms="12627" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCartIconPresent()[pri:0, instance:tests.CartTest@6a28ffa4]" started-at="2026-02-28T13:51:57 PKT" name="testCartIconPresent" finished-at="2026-02-28T13:51:57 PKT" duration-ms="165" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCartIconPresent -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.CartTest@6a28ffa4]" started-at="2026-02-28T13:51:57 PKT" name="tearDown" finished-at="2026-02-28T13:51:58 PKT" duration-ms="937" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.CartTest -->
+      <class name="tests.AppLaunchTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AppLaunchTest@9353778]" started-at="2026-02-28T13:50:59 PKT" name="setUp" finished-at="2026-02-28T13:51:12 PKT" duration-ms="13319" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testAppLaunchesSuccessfully()[pri:0, instance:tests.AppLaunchTest@9353778]" started-at="2026-02-28T13:51:12 PKT" name="testAppLaunchesSuccessfully" finished-at="2026-02-28T13:51:15 PKT" duration-ms="3002" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAppLaunchesSuccessfully -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AppLaunchTest@6f96c77]" started-at="2026-02-28T11:11:39 PKT" name="tearDown" finished-at="2026-02-28T11:11:39 PKT" duration-ms="0" status="SKIP">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AppLaunchTest@9353778]" started-at="2026-02-28T13:51:15 PKT" name="tearDown" finished-at="2026-02-28T13:51:16 PKT" duration-ms="864" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- tests.AppLaunchTest -->
+      <class name="tests.ProductBrowsingTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ProductBrowsingTest@21de60b4]" started-at="2026-02-28T13:53:17 PKT" name="setUp" finished-at="2026-02-28T13:53:29 PKT" duration-ms="11835" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testProductDetailsVisible()[pri:0, instance:tests.ProductBrowsingTest@21de60b4]" started-at="2026-02-28T13:53:29 PKT" name="testProductDetailsVisible" finished-at="2026-02-28T13:53:29 PKT" duration-ms="417" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProductDetailsVisible -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ProductBrowsingTest@21de60b4]" started-at="2026-02-28T13:53:29 PKT" name="tearDown" finished-at="2026-02-28T13:53:30 PKT" duration-ms="981" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ProductBrowsingTest@21de60b4]" started-at="2026-02-28T13:53:30 PKT" name="setUp" finished-at="2026-02-28T13:53:44 PKT" duration-ms="13834" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testProductListNotEmpty()[pri:0, instance:tests.ProductBrowsingTest@21de60b4]" started-at="2026-02-28T13:53:44 PKT" name="testProductListNotEmpty" finished-at="2026-02-28T13:53:44 PKT" duration-ms="180" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProductListNotEmpty -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ProductBrowsingTest@21de60b4]" started-at="2026-02-28T13:53:44 PKT" name="tearDown" finished-at="2026-02-28T13:53:45 PKT" duration-ms="820" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ProductBrowsingTest@21de60b4]" started-at="2026-02-28T13:53:45 PKT" name="setUp" finished-at="2026-02-28T13:53:57 PKT" duration-ms="11898" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testProductsDisplayed()[pri:0, instance:tests.ProductBrowsingTest@21de60b4]" started-at="2026-02-28T13:53:57 PKT" name="testProductsDisplayed" finished-at="2026-02-28T13:53:57 PKT" duration-ms="162" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProductsDisplayed -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ProductBrowsingTest@21de60b4]" started-at="2026-02-28T13:53:57 PKT" name="tearDown" finished-at="2026-02-28T13:53:58 PKT" duration-ms="966" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.ProductBrowsingTest -->
+      <class name="tests.NavigationTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.NavigationTest@1700915]" started-at="2026-02-28T13:52:34 PKT" name="setUp" finished-at="2026-02-28T13:52:47 PKT" duration-ms="12343" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testHeaderElementsPresent()[pri:0, instance:tests.NavigationTest@1700915]" started-at="2026-02-28T13:52:47 PKT" name="testHeaderElementsPresent" finished-at="2026-02-28T13:52:47 PKT" duration-ms="342" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testHeaderElementsPresent -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.NavigationTest@1700915]" started-at="2026-02-28T13:52:47 PKT" name="tearDown" finished-at="2026-02-28T13:52:48 PKT" duration-ms="1037" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.NavigationTest@1700915]" started-at="2026-02-28T13:52:48 PKT" name="setUp" finished-at="2026-02-28T13:53:00 PKT" duration-ms="12026" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testMenuDrawerOpens()[pri:0, instance:tests.NavigationTest@1700915]" started-at="2026-02-28T13:53:00 PKT" name="testMenuDrawerOpens" finished-at="2026-02-28T13:53:02 PKT" duration-ms="2407" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMenuDrawerOpens -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.NavigationTest@1700915]" started-at="2026-02-28T13:53:02 PKT" name="tearDown" finished-at="2026-02-28T13:53:03 PKT" duration-ms="1069" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.NavigationTest@1700915]" started-at="2026-02-28T13:53:03 PKT" name="setUp" finished-at="2026-02-28T13:53:16 PKT" duration-ms="12401" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSortingOptionAvailable()[pri:0, instance:tests.NavigationTest@1700915]" started-at="2026-02-28T13:53:16 PKT" name="testSortingOptionAvailable" finished-at="2026-02-28T13:53:16 PKT" duration-ms="217" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSortingOptionAvailable -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.NavigationTest@1700915]" started-at="2026-02-28T13:53:16 PKT" name="tearDown" finished-at="2026-02-28T13:53:17 PKT" duration-ms="900" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.NavigationTest -->
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->
 </testng-results>
