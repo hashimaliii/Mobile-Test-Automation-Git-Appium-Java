@@ -1,0 +1,43 @@
+name: Mobile Automation CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: macos-13 # Explicitly using macOS 13 (Intel) to ensure x86_64 emulator compatibility
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Set up Node.js for Appium
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install and Start Appium Server
+        run: |
+          npm install -g appium # Installs the latest Appium 2.x server
+          appium driver install uiautomator2
+          appium & 
+
+      - name: Run Tests in Android Emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: default
+          arch: x86_64
+          profile: pixel_6
+          working-directory: ./mobile-automation
+          script: mvn clean test
