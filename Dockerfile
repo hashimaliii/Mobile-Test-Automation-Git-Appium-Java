@@ -4,7 +4,7 @@ FROM ubuntu:22.04 as builder
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install Java 17 and build tools
-RUN apt-get update && apt-get install -y \
+RUN apt-get update -o Acquire::Retries=3 -qq && apt-get install -y --no-install-recommends \
     openjdk-17-jdk \
     maven \
     curl \
@@ -28,7 +28,8 @@ ENV PATH="/opt/android-sdk/platform-tools:/opt/android-sdk/tools/bin:/opt/androi
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
 # Install dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get clean \
+    && apt-get update -o Acquire::Retries=3 -qq && apt-get install -y --no-install-recommends \
     openjdk-17-jdk \
     maven \
     curl \
@@ -38,7 +39,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libc6-i386 \
     lib32stdc++6 \
-    lib32gcc1 \
+    lib32gcc-s1 \
     libxrender1 \
     libxrandr2 \
     libxinerama1 \
@@ -96,18 +97,18 @@ WORKDIR /workspace
 
 # Create entrypoint script
 RUN echo '#!/bin/bash\n\
-set -e\n\
-echo "Starting Appium server..."\n\
-appium --address 0.0.0.0 --port 4723 --log-level info &\n\
-APPIUM_PID=$!\n\
-echo "Appium server started with PID: $APPIUM_PID"\n\
-sleep 5\n\
-echo "Running tests..."\n\
-mvn test\n\
-TEST_RESULT=$?\n\
-kill $APPIUM_PID || true\n\
-exit $TEST_RESULT\n\
-' > /entrypoint.sh && chmod +x /entrypoint.sh
+    set -e\n\
+    echo "Starting Appium server..."\n\
+    appium --address 0.0.0.0 --port 4723 --log-level info &\n\
+    APPIUM_PID=$!\n\
+    echo "Appium server started with PID: $APPIUM_PID"\n\
+    sleep 5\n\
+    echo "Running tests..."\n\
+    mvn test\n\
+    TEST_RESULT=$?\n\
+    kill $APPIUM_PID || true\n\
+    exit $TEST_RESULT\n\
+    ' > /entrypoint.sh && chmod +x /entrypoint.sh
 
 # Expose Appium port
 EXPOSE 4723
