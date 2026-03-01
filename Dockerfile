@@ -39,7 +39,7 @@ RUN apt-get clean \
     unzip \
     libc6-i386 \
     lib32stdc++6 \
-    lib32gcc1 \
+    lib32gcc-s1 \
     libxrender1 \
     libxrandr2 \
     libxinerama1 \
