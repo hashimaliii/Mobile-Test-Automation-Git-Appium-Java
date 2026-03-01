@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- 
+    TestNG Configuration Suite
+    
+    Parallel Execution Modes:
+    - tests: Run test classes in parallel
+    - classes: Run test methods in parallel per class
+    - methods: Run test methods in parallel (fastest)
+    
+    Thread Count: Number of parallel threads
+    Timeout: Test timeout in milliseconds (60000ms = 60 seconds)
+-->
+<suite name="Mobile Test Automation Suite" parallel="false" thread-count="1" verbose="2" timeout="90000">
+    
+    <listeners>
+        <listener class-name="utils.ExtentReportListener" />
+    </listeners>
+
+    <test name="Login Tests" preserve-order="true">
+        <classes>
+            <class name="tests.LoginTest" />
+        </classes>
+    </test>
+
+    <test name="App Launch Tests" preserve-order="true">
+        <classes>
+            <class name="tests.AppLaunchTest" />
+        </classes>
+    </test>
+
+    <test name="Navigation Tests" preserve-order="true">
+        <classes>
+            <class name="tests.NavigationTest" />
+        </classes>
+    </test>
+
+    <test name="Product Browsing Tests" preserve-order="true">
+        <classes>
+            <class name="tests.ProductBrowsingTest" />
+        </classes>
+    </test>
+
+    <test name="Cart Tests" preserve-order="true">
+        <classes>
+            <class name="tests.CartTest" />
+        </classes>
+    </test>
+
+    <test name="Accessibility Tests" preserve-order="true">
+        <classes>
+            <class name="tests.AccessibilityTest" />
+        </classes>
+    </test>
+
+    <test name="Cart Functional Tests" preserve-order="true">
+        <classes>
+            <class name="tests.CartFunctionalTest" />
+        </classes>
+    </test>
+
+    <test name="Navigation Workflow Tests" preserve-order="true">
+        <classes>
+            <class name="tests.CheckoutFunctionalTest" />
+        </classes>
+    </test>
+
+</suite>

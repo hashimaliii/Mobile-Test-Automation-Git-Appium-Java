@@ -9,6 +9,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest 
+    strategy:
+      matrix:
+        api-level: [28, 29]
 
     steps:
       - name: Checkout Repository
@@ -47,13 +50,12 @@ jobs:
       - name: Run Tests in Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 29
+          api-level: ${{ matrix.api-level }}
           target: default
           arch: x86_64
           profile: pixel_6
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -no-audio -no-boot-anim -memory 4096
-          working-directory: ./mobile-automation
           script: |
             adb wait-for-device
             # Wait for boot...
@@ -64,3 +66,10 @@ jobs:
             adb shell input keyevent 82
             
             mvn clean test
+
+      - name: Upload Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExtentReport-${{ matrix.api-level }}
+          path: target/ExtentReport.html
