@@ -4,7 +4,7 @@ FROM ubuntu:22.04 as builder
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install Java 17 and build tools
-&& apt-get update -o Acquire::Retries=3 -qq && apt-get install -y --no-install-recommends \
+RUN apt-get update -o Acquire::Retries=3 -qq && apt-get install -y --no-install-recommends \
     openjdk-17-jdk \
     maven \
     curl \
@@ -29,7 +29,6 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
 # Install dependencies
 RUN apt-get clean \
-    RUN apt-get clean \
     && apt-get update -o Acquire::Retries=3 -qq && apt-get install -y --no-install-recommends \
     openjdk-17-jdk \
     maven \
