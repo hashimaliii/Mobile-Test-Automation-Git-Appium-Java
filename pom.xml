@@ -14,8 +14,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Test Execution Properties -->
         <!-- Default: Sequential execution (CI/CD compatible). Override locally: mvn test -Dparallel.count=3 -->
-        <parallel.mode>methods</parallel.mode>
-        <parallel.count>3</parallel.count>
+        <parallel.mode>classes</parallel.mode>
+        <parallel.count>1</parallel.count>
         <timeout>90000</timeout>
     </properties>
 
