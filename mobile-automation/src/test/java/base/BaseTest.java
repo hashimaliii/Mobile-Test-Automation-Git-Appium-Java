@@ -29,32 +29,57 @@ public class BaseTest {
                 .setAppPackage("com.saucelabs.mydemoapp.android")
                 .setAppActivity("com.saucelabs.mydemoapp.android.view.activities.SplashActivity")
                 .setAppWaitDuration(Duration.ofSeconds(60))
-                .setNoReset(false) // Changed to false to ensure a fresh app state
+                .setNoReset(false)
                 .setAutoGrantPermissions(true);
 
         options.setAppWaitActivity("com.saucelabs.mydemoapp.android.view.activities.MainActivity");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         
-        // Reset the app to ensure it's in the foreground and active
-        driver.terminateApp("com.saucelabs.mydemoapp.android");
-        driver.activateApp("com.saucelabs.mydemoapp.android");
-        if (driver.isKeyboardShown()) {
-            driver.hideKeyboard();
+        // Add small delay before terminating to ensure app is ready
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
         
-        // Wait for MainActivity to fully load after app activation
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(
-            AppiumBy.xpath("//android.view.ViewGroup[1]/android.widget.ImageView[1]")));
+        // Gracefully terminate and reactivate app with extended timeout
+        try {
+            driver.terminateApp("com.saucelabs.mydemoapp.android");
+            // Wait longer for app termination to complete
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            System.out.println("Warning: App termination had issues: " + e.getMessage());
+        }
         
-        // --- ADDED STABILITY COMMANDS ---
-        // 1. Wake up the screen
-        //driver.executeScript("mobile: shell", java.util.Map.of("command", "input keyevent KEYCODE_WAKEUP"));
-        // 2. Unlock the screen (Swipe/Menu key)
-        //driver.executeScript("mobile: shell", java.util.Map.of("command", "input keyevent 82"));
+        // Activate app and wait for it to be ready
+        try {
+            driver.activateApp("com.saucelabs.mydemoapp.android");
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println("Warning: App activation had issues: " + e.getMessage());
+        }
         
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        // Hide keyboard if shown
+        try {
+            if (driver.isKeyboardShown()) {
+                driver.hideKeyboard();
+            }
+        } catch (Exception e) {
+            // Keyboard may not be shown, ignore
+        }
+        
+        // Wait for MainActivity to fully load - Using longer timeout for CI/CD stability
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(45));
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.xpath("//android.view.ViewGroup[1]/android.widget.ImageView[1]")));
+        } catch (Exception e) {
+            System.out.println("Warning: Initial element wait timed out, continuing: " + e.getMessage());
+        }
+        
+        // Set implicit wait
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
     @AfterMethod

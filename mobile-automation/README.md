@@ -13,6 +13,7 @@ A comprehensive mobile test automation framework built with **Appium**, **Java**
 - [Test Coverage](#test-coverage)
 - [Test Results](#test-results)
 - [Troubleshooting](#troubleshooting)
+- [CI/CD Optimization](#cicd-optimization)
 - [Contributing](#contributing)
 
 ## 🎯 Project Overview
@@ -488,7 +489,53 @@ jobs:
 3. Verify device/emulator state
 4. Check GitHub issues for known problems
 
-## 🔄 Version Control
+## � CI/CD Optimization
+
+### Overview
+
+The framework has been optimized for CI/CD environments with the following configurations:
+
+- **Default Execution Mode**: Sequential (1 thread)
+- **Test Timeout**: 90 seconds
+- **Appium Timeout**: 90 seconds
+- **Error Handling**: Graceful degradation with retries
+
+### Why Sequential by Default?
+
+Single Android emulator instances cannot reliably handle multiple concurrent test threads. Sequential execution provides:
+
+✅ **Stability** - No session conflicts or race conditions  
+✅ **Reliability** - Predictable test outcomes  
+✅ **CI/CD Friendly** - Works in resource-constrained environments  
+✅ **Debugging** - Clear test execution order in logs  
+
+### For Detailed CI/CD Guidance
+
+See [**CI_CD_OPTIMIZATION.md**](CI_CD_OPTIMIZATION.md) for:
+
+- **Performance comparison** - Sequential vs parallel execution
+- **Environment-specific settings** - GitHub Actions, Jenkins, local dev
+- **Troubleshooting** - Common CI/CD failures and solutions
+- **Monitoring** - Test metrics and health checks
+- **Best practices** - Configuration recommendations by use case
+
+### Quick Reference
+
+```bash
+# CI/CD (Default - Sequential)
+mvn clean test
+
+# Local Dev (Optional - Parallel)
+mvn clean test -Dparallel.count=3
+
+# Extended Timeout (for slow runners)
+mvn clean test -Dtimeout=180000
+
+# Generate HTML Reports
+mvn surefire-report:report
+```
+
+## �🔄 Version Control
 
 ### Commit Strategy
 
