@@ -12,8 +12,12 @@
     Thread Count: Number of parallel threads
     Timeout: Test timeout in milliseconds (60000ms = 60 seconds)
 -->
-<suite name="Mobile Test Automation Suite" parallel="methods" thread-count="1" verbose="2" timeout="90000">
+<suite name="Mobile Test Automation Suite" parallel="methods" thread-count="3" verbose="2" timeout="90000">
     
+    <listeners>
+        <listener class-name="utils.ExtentReportListener" />
+    </listeners>
+
     <test name="Login Tests" preserve-order="true">
         <classes>
             <class name="tests.LoginTest" />

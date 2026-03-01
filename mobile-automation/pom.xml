@@ -15,7 +15,7 @@
         <!-- Test Execution Properties -->
         <!-- Default: Sequential execution (CI/CD compatible). Override locally: mvn test -Dparallel.count=3 -->
         <parallel.mode>methods</parallel.mode>
-        <parallel.count>1</parallel.count>
+        <parallel.count>3</parallel.count>
         <timeout>90000</timeout>
     </properties>
 
@@ -56,6 +56,12 @@
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.13</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.1.1</version>
         </dependency>
     </dependencies>
 
