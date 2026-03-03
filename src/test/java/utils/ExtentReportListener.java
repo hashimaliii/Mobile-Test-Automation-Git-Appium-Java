@@ -14,11 +14,13 @@ public class ExtentReportListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        ExtentSparkReporter spark = new ExtentSparkReporter("target/ExtentReport.html");
-        extent = new ExtentReports();
-        extent.attachReporter(spark);
-        extent.setSystemInfo("Environment", "QA");
-        extent.setSystemInfo("User", "DevOps Engineer");
+        if (extent == null) {
+            ExtentSparkReporter spark = new ExtentSparkReporter("target/ExtentReport.html");
+            extent = new ExtentReports();
+            extent.attachReporter(spark);
+            extent.setSystemInfo("Environment", "QA");
+            extent.setSystemInfo("User", "DevOps Engineer");
+        }
     }
 
     @Override
