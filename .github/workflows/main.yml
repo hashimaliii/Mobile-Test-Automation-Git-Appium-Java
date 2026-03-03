@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest 
     strategy:
       matrix:
-        api-level: [1]
+        api-level: [28, 29]
 
     steps:
       - name: Checkout Repository
@@ -37,15 +37,11 @@ jobs:
 
       - name: Install and Start Appium Server
         run: |
-          # Install stable Appium 2
           npm install -g appium@2.5.1 
-          
-          # Install a compatible version of the uiautomator2 driver (not the v3-beta one)
           appium driver install uiautomator2@2.45.1
           appium --allow-insecure adb_shell --log appium.log &
-          
-          # Start Appium in the background
-          appium --log appium.log &
+          # Wait for Appium to be fully ready
+          sleep 10
 
       - name: Run Tests in Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
@@ -55,13 +51,14 @@ jobs:
           arch: x86_64
           profile: pixel_6
           disable-animations: true
-          emulator-options: -no-window -gpu swiftshader_indirect -no-audio -no-boot-anim -memory 4096
+          emulator-boot-timeout: 600
+          emulator-options: -no-window -gpu swiftshader_indirect -no-audio -no-boot-anim -no-snapshot-save -memory 2048
           script: |
             adb wait-for-device
-            # Wait for boot...
+            # Wait for boot completion
             while [ "`adb shell getprop sys.boot_completed | tr -d '\r'`" != "1" ] ; do sleep 5; done
             
-            # UNLOCK HERE INSTEAD OF JAVA
+            # Prepare device
             adb shell input keyevent KEYCODE_WAKEUP
             adb shell input keyevent 82
             
